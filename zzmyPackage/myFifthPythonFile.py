@@ -120,6 +120,7 @@ receipt_receipt()
 
 import time
 
+
 amount = 5000
 user1_balance = 10000.00
 user1_pin = "123456"
