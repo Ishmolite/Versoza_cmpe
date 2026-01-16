@@ -2,7 +2,7 @@ import time
 import os
 import json
 import sys
-from SYSTEM import cards_function
+import cards_function
 
 
 #FLASHCARDS
