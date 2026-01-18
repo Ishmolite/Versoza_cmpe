@@ -1,5 +1,6 @@
 import json
 import os
+import time
 
 FILENAME = "saved_flashcard.json"
 
@@ -18,9 +19,9 @@ def load_print_cards():
         print(" 😔 There are currently no cards.")
         return
     for card in cards:
-            print("-----")
-            print(f"Term: {card['term']}")
-            print(f"Definition: {card['definition']}")
+            print(f" TERM: {card['term']}")
+            print(f" DEFINITION: {card['definition']}")
+            print("-" * 20)
 
 def save_cards(cards):
     with open(FILENAME, "w") as f:
@@ -62,6 +63,23 @@ def how_to_use():
     print("❓ Entering the value of '4' allows you to view this tutorial page.")
     print("❓ Entering the value of '?' shows the available choices again.")
     print("❓ Entering the value of 'X' closes the program.")
+    print("--- HOW TO USE ---")
+
+def loading():
+    for i in range(3):
+        while True:
+            for dots in [".  ", ".. ", "..."]:
+                print(f"\rLoading{dots}", end="", flush=True)
+                time.sleep(0.5)
+            break
+    print("")
 
 
+def initialization():
+    for i in range(4):
+        while True:
+            for dots in [".  ", ".. ", "..."]:
+                print(f"\rInitializing{dots}", end="", flush=True)
+                time.sleep(0.3)
+            break
 

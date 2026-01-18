@@ -1,11 +1,16 @@
-import time
-import os
-import json
 import sys
 import cards_function
-
+import time
 
 #FLASHCARDS
+
+def checking_cards():
+    for i in range (2):
+        while True:
+            for dots in [".  ", ".. ", "..."]:
+                print(f"\rLoading cards{dots}", end="", flush=True)
+                time.sleep(0.5)
+            break
 
 def selection():
 
@@ -29,27 +34,30 @@ def menu():
             case "1":
                 print("=============================================")
                 cards_function.create_card(my_cards)
-                time.sleep(2)
+                cards_function.load_cards()
 
             case "2":
                 print("=============================================")
                 cards_function.load_print_cards()
-                time.sleep(2)
+                cards_function.loading()
 
             case "3":
                 print("=============================================")
                 cards_function.review_cards(my_cards)
-                time.sleep(2)
+                cards_function.loading()
 
             case "4":
                 cards_function.how_to_use()
-                time.sleep(5)
+                cards_function.loading()
                 menu()
 
             case "X":
-                print("Exiting...")
-                time.sleep(1)
-                sys.exit()
+                while True:
+                    for dots in [".  ", ".. ", "..."]:
+                        print(f"\rExiting{dots}", end="", flush=True)
+                        time.sleep(0.5)
+                    sys.exit()
+
 
             case "?":
                 print("=============================================")
@@ -68,11 +76,11 @@ def menu():
 
 my_cards = cards_function.load_cards()
 
-print("Initializing code...")
+
+cards_function.initialization()
 time.sleep(1)
-print("Checking for cards...")
-time.sleep(0.9)
-print(f"Loaded {len(my_cards)} cards.")
+checking_cards()
+print(f"\rLoaded {len(my_cards)} cards")
 time.sleep(1)
 print("=============================================")
 print("Welcome to Flashcard Generator.")
